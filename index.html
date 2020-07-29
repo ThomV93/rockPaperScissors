@@ -2,22 +2,40 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Function scope example</title>
+        <title>Rock Paper Scissors</title>
     </head>
     <body>
         <script>
 
-            const objects = ["rock", "paper", "scissors"];
-
+            const objects = ["rock","paper","scissors"];
+            const computerSelection = computerPlay;
+            const playerSelection = prompt("Choose your object: rock, paper or scissors");
 
             function computerPlay() {
-                const randomObject = objects[Math.floor(Math.random() * objects.length)];
-                return randomObject;
+                let randomObject = objects[Math.floor(Math.random() * objects.length)];
             }
 
-            function playRound(playerSelection, computerSelection) {
-                
+            function playRound(playerSelection, computerPlay) {
+                if (playerSelection === "rock" && computerPlay === "scissors") {
+                    console.log ("You Win! Rock beats Scissors");
+                } else if (playerSelection === "rock" && computerPlay === "paper") {
+                    console.log ("You Loose! Rock beats Scissors");
+                } else if (playerSelection === "scissors" && computerPlay === "paper") {
+                    console.log ("You Win! Scissors beats Paper");
+                } else if (playerSelection === "scissors" && computerPlay === "rock") {
+                    console.log ("You Loose! Rock beats Scissors");
+                } else if (playerSelection === "paper" && computerPlay === "rock") {
+                    console.log ("You Win! Paper beats Rock");
+                } else if (playerSelection === "paper" && computerPlay === "scissors") {
+                    console.log ("You Loose! Scissors beats paper");
+                } else if (playerSelection === computerPlay){
+                    console.log ("Draw! Please try again");
+                } else {
+                    console.log ("Please enter a valid object");
+                }
             }
+
+            console.log(playRound(playerSelection, computerSelection))
 
         </script>
     </body>
