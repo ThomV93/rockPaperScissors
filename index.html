@@ -18,21 +18,21 @@
 
             function playRound(playerSelection, computerSelection) {
                 if (playerSelection === "rock" && computerSelection === "scissors") {
-                    console.log ("You Win! Rock beats Scissors");
+                    return "You Win! Rock beats Scissors";
                 } else if (playerSelection === "rock" && computerSelection === "paper") {
-                    console.log ("You Loose! Rock beats Scissors");
+                    return "You Loose! Paper beats Rock";
                 } else if (playerSelection === "scissors" && computerSelection === "paper") {
-                    console.log ("You Win! Scissors beats Paper");
+                    return "You Win! Scissors beats Paper";
                 } else if (playerSelection === "scissors" && computerSelection === "rock") {
-                    console.log ("You Loose! Rock beats Scissors");
+                    return "You Loose! Rock beats Scissors";
                 } else if (playerSelection === "paper" && computerSelection === "rock") {
-                    console.log ("You Win! Paper beats Rock");
+                    return "You Win! Paper beats Rock";
                 } else if (playerSelection === "paper" && computerSelection === "scissors") {
-                    console.log ("You Loose! Scissors beats paper");
+                    return "You Loose! Scissors beats paper";
                 } else if (playerSelection === computerSelection){
-                    console.log ("Draw! Please try again");
+                    return "Draw! Please try again";
                 } else {
-                    console.log ("Please enter a valid object");
+                    return "Please enter a valid object";
                 }
             }
 
