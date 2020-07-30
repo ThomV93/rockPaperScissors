@@ -7,28 +7,29 @@
     <body>
         <script>
 
-            const objects = ["rock","paper","scissors"];
-            const computerSelection = computerPlay;
-            const playerSelection = prompt("Choose your object: rock, paper or scissors");
-
+            const objects = ["rock","paper","scissors"]
+            let computerSelection = computerPlay()
+            let playerSelection = prompt("Choose one object: rock, paper or scissors")
+            
             function computerPlay() {
-                let randomObject = objects[Math.floor(Math.random() * objects.length)];
+                let randomObject = objects[Math.floor(Math.random()*objects.length)]
+                return randomObject;
             }
 
-            function playRound(playerSelection, computerPlay) {
-                if (playerSelection === "rock" && computerPlay === "scissors") {
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection === "rock" && computerSelection === "scissors") {
                     console.log ("You Win! Rock beats Scissors");
-                } else if (playerSelection === "rock" && computerPlay === "paper") {
+                } else if (playerSelection === "rock" && computerSelection === "paper") {
                     console.log ("You Loose! Rock beats Scissors");
-                } else if (playerSelection === "scissors" && computerPlay === "paper") {
+                } else if (playerSelection === "scissors" && computerSelection === "paper") {
                     console.log ("You Win! Scissors beats Paper");
-                } else if (playerSelection === "scissors" && computerPlay === "rock") {
+                } else if (playerSelection === "scissors" && computerSelection === "rock") {
                     console.log ("You Loose! Rock beats Scissors");
-                } else if (playerSelection === "paper" && computerPlay === "rock") {
+                } else if (playerSelection === "paper" && computerSelection === "rock") {
                     console.log ("You Win! Paper beats Rock");
-                } else if (playerSelection === "paper" && computerPlay === "scissors") {
+                } else if (playerSelection === "paper" && computerSelection === "scissors") {
                     console.log ("You Loose! Scissors beats paper");
-                } else if (playerSelection === computerPlay){
+                } else if (playerSelection === computerSelection){
                     console.log ("Draw! Please try again");
                 } else {
                     console.log ("Please enter a valid object");
