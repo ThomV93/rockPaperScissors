@@ -7,10 +7,9 @@
     <body>
         <script>
 
-            const objects = ["rock","paper","scissors"]
-            let computerSelection = computerPlay();
-            let input = prompt("Choose one object: rock, paper or scissors");
-            let playerSelection = input.toLowerCase();
+            const objects = ["rock","paper","scissors"];
+            let playerScore = 0;
+            let computerScore = 0;
 
             function computerPlay() {
                 let randomObject = objects[Math.floor(Math.random()*objects.length)]
@@ -43,21 +42,29 @@
                 }
             }
 
-            for (i = 0; i < 5; i++) {
-                let playerScore = 0;
-                let computerScore = 0;
+            function game() {
+                for (let i = 0; i < 5; i++) {
 
-                playRound()
+                    let input = prompt("Choose one object: rock, paper or scissors");
+                    let playerSelection = input.toLowerCase();
+                    let computerSelection = computerPlay();
 
-                if (playerScore >= 3) {
-                    return "You won the game";
-                } else if (computerScore >= 3) {
-                    return "You lost the game";
+                    computerPlay();
+
+                    playRound(playerSelection, computerSelection);
+                    console.log(playRound(playerSelection, computerSelection));
+
+                    if (playerScore >= 3) {
+                        return "You won the game";
+                    } else if (computerScore >= 3) {
+                        return "You lost the game";
+                    }
                 }
-
             }
 
-            console.log(playRound(playerSelection, computerSelection));
+            game()
+
+            console.log(game())
 
         </script>
     </body>
