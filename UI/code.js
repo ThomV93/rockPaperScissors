@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     for (i = 0; i < 5; i++) {
 
-        let input = prompt("Choose an object: rock, paper or scissors");
+        //let input = prompt("Choose an object: rock, paper or scissors");
         let playerSelection = input.toLowerCase();
         let computerSelection = computerPlay();
 
