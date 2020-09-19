@@ -1,11 +1,28 @@
-const objects = ["rock","paper","scissors"];
+let objects = ["rock, paper, scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
+//store the ID of the button picked as player selection
+let playerSelection = document.querySelectorAll(".btn");
+playerSelection.forEach((btn) => {
+    btn.addEventListener("click", function(e) {
+        playerSelection = this.id;
+        playerSelection = playerSelection.toString();
+    });
+});
+
+//display selection on screen
+//computer selects play
 function computerPlay() {
     let randomObject = objects[Math.floor(Math.random()*objects.length)]
     return randomObject;
 }
+
+computerPlay();
+
+let computerSelection = computerPlay();
+//display selection on screen
+//calculate which player won the round
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -32,14 +49,19 @@ function playRound(playerSelection, computerSelection) {
         return "Please enter a valid object";
     }
 }
+//display winner of the round on screen
+//add a point to the respective score
+//display points on scoreboard
+//repeat process untill one player wins 3 rounds
+//display winner of the game on screen
 
-function game() {
+
+/*function game() {
     for (i = 0; i < 5; i++) {
 
-        let playerSelection = input.toLowerCase();
-        let computerSelection = computerPlay();
+        
 
-        computerPlay();
+        
 
         playRound(playerSelection, computerSelection);
         console.log(playRound(playerSelection, computerSelection));
@@ -52,6 +74,6 @@ function game() {
     }
 }
 
-game()
+game();
 
-console.log(game())
+console.log(game())*/
