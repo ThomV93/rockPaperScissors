@@ -1,6 +1,14 @@
-let objects = ["rock, paper, scissors"];
-let playerScore = 0;
-let computerScore = 0;
+const objects = ["rock", "paper", "scissors"];
+const playerScore = 0;
+const computerScore = 0;
+const playerScore_span = document.getElementById("player-score");
+const computerScore_span = document.getElementById("computer-score");
+const scoreBoard_div = document.querySelector("#scoreboard");
+const result_div = document.querySelector("#result");
+const rock_div = document.getElementById("#rock");
+const paper_div = document.getElementById("#paper");
+const scissors_div = document.getElementById("#scissors");
+
 
 //store the ID of the button picked as player selection
 let playerSelection = document.querySelectorAll(".btn");
@@ -27,22 +35,16 @@ let computerSelection = computerPlay();
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore++
-        return "You Won! Rock beats Scissors";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore++
-        return "You Lost! Paper beats Rock";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore++
-        return "You Won! Scissors beats Paper";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerScore++
-        return "You Lost! Rock beats Scissors";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore++
-        return "You Won! Paper beats Rock";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerScore++
-        return "You Lost! Scissors beats paper";
     } else if (playerSelection === computerSelection){
         return "Draw! Please try again";
     } else {
@@ -58,10 +60,6 @@ function playRound(playerSelection, computerSelection) {
 
 /*function game() {
     for (i = 0; i < 5; i++) {
-
-        
-
-        
 
         playRound(playerSelection, computerSelection);
         console.log(playRound(playerSelection, computerSelection));

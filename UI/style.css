@@ -4,13 +4,27 @@ body {
 }
 
 #scoreboard {
-    display: flex;
-    justify-content: center;
-    min-height: 25vh;
+    text-align: center;
+    min-height: 20vh;
 }
 
 h2 {
     font-size: 36px;
+}
+
+#badge-container {
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 5vh;
+}
+
+span {
+    font-size: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 26px;
 }
 
 #container {
