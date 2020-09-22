@@ -32,21 +32,32 @@ function computerPlay() {
     return randomObject;
 }
 
+function convertName(letter) {
+    if (letter === "r") {
+        return "Rock";
+    } else if (letter === "p") {
+        return "Paper";
+    } else {
+        return "Scissors";
+    }
+}
+
 //add a point to player score, alters the scoreboard and display the message based on each choice
 function win(playerChoice, computerChoice) {
     playerScore++;
     playerScore_span.innerHTML = playerScore;
-    result_p.innerHTML = playerChoice + " beats " + computerChoice + ". You win!"
+    result_p.innerHTML = convertName(playerChoice) + " beats " + convertName(computerChoice) + ". You win!";
 }
 
 //add a point to computer score, alters the scoreboard and display the message based on each choice
-function lose() {
+function lose(playerChoice, computerChoice) {
     computerScore++;
     computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = convertName(computerChoice) + " beats " + convertName(playerChoice) + ". You lost!";
 }
 
 function draw() {
-    console.log("Draw!")
+    result_p.innerHTML = "Draw!";
 }
 
 //combine both choices and call the respective function

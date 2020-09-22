@@ -1,6 +1,6 @@
 body {
-    background: -webkit-linear-gradient(360deg, #b6eae1 10%, #D2FBAD 360%);
-    font-family: 'Play', sans-serif;
+    background: -webkit-linear-gradient(360deg, #b6eae1 10%, #47F462 360%);
+    font-family: "Play", sans-serif;
 }
 
 #scoreboard {
@@ -10,6 +10,11 @@ body {
 
 h2 {
     font-size: 36px;
+    text-decoration: underline;
+}
+
+.badge {
+    font-size: 26px;
 }
 
 #badge-container {
@@ -19,7 +24,7 @@ h2 {
 }
 
 span {
-    font-size: 20px;
+    font-size: 26px;
 }
 
 p {
@@ -54,9 +59,8 @@ p {
     display: flex;
     background-color: white;
     border-radius: 5px;
-    margin-left: 15px;
+    margin-left: 20px;
     box-sizing: border-box;
-    border: 2px solid black;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     width: 100px;
     height: 100px;
