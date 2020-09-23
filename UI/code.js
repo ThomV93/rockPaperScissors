@@ -11,14 +11,17 @@ const scissors_div = document.getElementById("s");
 //add event listener for each button and call the function game with the respective choice
 function playerSelection() {
     rock_div.addEventListener("click", function() {
+        rock_div.classList.add("playing");
         game("r");
     });
     
     paper_div.addEventListener("click", function() {
+        paper_div.classList.add("playing");
         game("p");
     });
     
     scissors_div.addEventListener("click", function() {
+        scissors_div.classList.add("playing");
         game("s");
     });
 };
@@ -32,6 +35,16 @@ function computerPlay() {
     return randomObject;
 }
 
+//remove the transition when it ends
+function removeTransition(e) {
+    if (e.propertyName !== "transform") return; //skip the property name if it is not a transform
+    this.classList.remove("playing");
+}
+
+const btns = document.querySelectorAll(".btn");
+btns.forEach(btn => btn.addEventListener("transitionend", removeTransition));
+
+//convert the letter to a full name for display purposes
 function convertName(letter) {
     if (letter === "r") {
         return "Rock";
