@@ -2,7 +2,6 @@ let playerScore = 0;
 let computerScore = 0;
 const playerScore_span = document.getElementById("player-score");
 const computerScore_span = document.getElementById("computer-score");
-const scoreBoard_div = document.querySelector("#scoreboard");
 const result_p = document.querySelector("#result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
@@ -96,3 +95,6 @@ function game(playerChoice) {
 }
 
 game();
+
+//Function to check if the game is over
+//Button to reset the game refreshing the browser window
