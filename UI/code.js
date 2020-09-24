@@ -2,6 +2,8 @@ let playerScore = 0;
 let computerScore = 0;
 const playerScore_span = document.getElementById("player-score");
 const computerScore_span = document.getElementById("computer-score");
+const playerButtons_div = document.getElementById("player-buttons")
+const btns_div = document.querySelectorAll(".btn");
 const result_p = document.querySelector("#result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
@@ -34,14 +36,14 @@ function computerPlay() {
     return randomObject;
 }
 
-//remove the transition when it ends
+//remove the transition after the transform ends
 function removeTransition(e) {
     if (e.propertyName !== "transform") return; //skip the property name if it is not a transform
     this.classList.remove("playing");
 }
 
-const btns = document.querySelectorAll(".btn");
-btns.forEach(btn => btn.addEventListener("transitionend", removeTransition));
+//event to remove the transition
+btns_div.forEach(btn => btn.addEventListener("transitionend", removeTransition));
 
 //convert the letter to a full name for display purposes
 function convertName(letter) {
@@ -72,6 +74,25 @@ function draw() {
     result_p.innerHTML = "Draw!";
 }
 
+//refresh window
+function refreshGame() {
+    window.location.reload();
+}
+
+//Button to reset the game refreshing the browser window
+function replayButton() {
+    let replayBtn = document.createElement("button");
+    replayBtn.innerHTML = "Replay?"
+    playerButtons_div.appendChild(replayBtn);
+    replayBtn.addEventListener("click", refreshGame);
+}
+
+//removes buttons and substitutes with the replay btn
+function resetGame() {
+    btns_div.forEach(btn => btn.remove()); //remove the buttons
+    replayButton();
+}
+
 //combine both choices and call the respective function
 function game(playerChoice) {
     const computerChoice = computerPlay();
@@ -92,9 +113,18 @@ function game(playerChoice) {
             draw(playerChoice, computerChoice);
             break;
     }
+    isGameOver();
 }
 
 game();
 
 //Function to check if the game is over
-//Button to reset the game refreshing the browser window
+function isGameOver() {
+    if (playerScore === 5) {
+        result_p.innerHTML = "Congratulations! You won the game!";
+        resetGame();
+    } else if (computerScore === 5) {
+        result_p.innerHTML = "Sorry bud, the machine won";
+        resetGame();
+    }
+}
