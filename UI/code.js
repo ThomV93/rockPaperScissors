@@ -9,7 +9,7 @@ const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
 
-//add event listener for each button and call the function game with the respective choice
+//add event listener for each button and call the function game with the respective choice as parameter
 function playerSelection() {
     rock_div.addEventListener("click", function() {
         rock_div.classList.add("playing");
@@ -36,7 +36,7 @@ function computerPlay() {
     return randomObject;
 }
 
-//remove the transition after the transform ends
+//remove the click event transition after the transform ends
 function removeTransition(e) {
     if (e.propertyName !== "transform") return; //skip the property name if it is not a transform
     this.classList.remove("playing");
@@ -87,13 +87,13 @@ function replayButton() {
     replayBtn.addEventListener("click", refreshGame);
 }
 
-//removes buttons and substitutes with the replay btn
+//removes buttons and substitutes with the replay button
 function resetGame() {
     btns_div.forEach(btn => btn.remove()); //remove the buttons
     replayButton();
 }
 
-//combine both choices and call the respective function
+//combine both choices and call the respective function depending on combination result
 function game(playerChoice) {
     const computerChoice = computerPlay();
     switch (playerChoice + computerChoice) {
@@ -113,12 +113,12 @@ function game(playerChoice) {
             draw(playerChoice, computerChoice);
             break;
     }
-    isGameOver();
+    isGameOver(); // check before calculating the next round
 }
 
 game();
 
-//Function to check if the game is over
+//Check if the game is over
 function isGameOver() {
     if (playerScore === 5) {
         result_p.innerHTML = "Congratulations! You won the game!";
