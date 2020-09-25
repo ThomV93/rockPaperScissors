@@ -9,20 +9,20 @@ const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
 
-//add event listener for each button and call the function game with the respective choice as parameter
+//adds event listener for each button and call the function game with the respective choice as parameter
 function playerSelection() {
     rock_div.addEventListener("click", function() {
-        rock_div.classList.add("playing");
+        rock_div.classList.add("playing");//adds transition class to button
         game("r");
     });
     
     paper_div.addEventListener("click", function() {
-        paper_div.classList.add("playing");
+        paper_div.classList.add("playing");//adds transition class to button
         game("p");
     });
     
     scissors_div.addEventListener("click", function() {
-        scissors_div.classList.add("playing");
+        scissors_div.classList.add("playing");//adds transition class to button
         game("s");
     });
 };
